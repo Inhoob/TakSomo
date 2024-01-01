@@ -1,7 +1,8 @@
 // @ts-nocheck
-import {apiRoutes} from 'routes';
-import {api} from 'utils/api';
-import {useFetch} from 'utils/reactQuery';
+// import {apiRoutes} from 'routes';
+// import {api} from 'utils/api';
+// import {useFetch} from 'utils/reactQuery';
+
 // export const getTokenByPassword = (email: string, password: string) =>
 //   api.post<{ token: string }>(apiRoutes.getTokenByPassword, {
 //     email,

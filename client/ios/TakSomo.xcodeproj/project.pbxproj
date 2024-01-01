@@ -12,12 +12,12 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		40C1A4CB1C48427BAF68EE4E /* GmarketSansTTFMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B20C32B0C0E346D1A8F7F344 /* GmarketSansTTFMedium.ttf */; };
 		5090EC092B25D155006B943D /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 5090EC082B25D155006B943D /* Fonts */; };
 		7699B88040F8A987B510C191 /* libPods-TakSomo-TakSomoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-TakSomo-TakSomoTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8ECEF671A4F74057AD084DFE /* GmarketSansTTFBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4D92C7708134FBFAAE0AC5D /* GmarketSansTTFBold.ttf */; };
 		C80648309D2345E39E8D36C3 /* GmarketSansTTFLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82EFC40355C24B3297EA7179 /* GmarketSansTTFLight.ttf */; };
-		40C1A4CB1C48427BAF68EE4E /* GmarketSansTTFMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B20C32B0C0E346D1A8F7F344 /* GmarketSansTTFMedium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,11 +47,11 @@
 		5B7EB9410499542E8C5724F5 /* Pods-TakSomo-TakSomoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakSomo-TakSomoTests.debug.xcconfig"; path = "Target Support Files/Pods-TakSomo-TakSomoTests/Pods-TakSomo-TakSomoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-TakSomo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TakSomo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TakSomo/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		82EFC40355C24B3297EA7179 /* GmarketSansTTFLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = GmarketSansTTFLight.ttf; path = ../assets/fonts/GmarketSansTTFLight.ttf; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-TakSomo-TakSomoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakSomo-TakSomoTests.release.xcconfig"; path = "Target Support Files/Pods-TakSomo-TakSomoTests/Pods-TakSomo-TakSomoTests.release.xcconfig"; sourceTree = "<group>"; };
+		B20C32B0C0E346D1A8F7F344 /* GmarketSansTTFMedium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = GmarketSansTTFMedium.ttf; path = ../assets/fonts/GmarketSansTTFMedium.ttf; sourceTree = "<group>"; };
+		D4D92C7708134FBFAAE0AC5D /* GmarketSansTTFBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = GmarketSansTTFBold.ttf; path = ../assets/fonts/GmarketSansTTFBold.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		D4D92C7708134FBFAAE0AC5D /* GmarketSansTTFBold.ttf */ = {isa = PBXFileReference; name = "GmarketSansTTFBold.ttf"; path = "../assets/fonts/GmarketSansTTFBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		82EFC40355C24B3297EA7179 /* GmarketSansTTFLight.ttf */ = {isa = PBXFileReference; name = "GmarketSansTTFLight.ttf"; path = "../assets/fonts/GmarketSansTTFLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B20C32B0C0E346D1A8F7F344 /* GmarketSansTTFMedium.ttf */ = {isa = PBXFileReference; name = "GmarketSansTTFMedium.ttf"; path = "../assets/fonts/GmarketSansTTFMedium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 			sourceTree = "<group>";
 		};
 		EFAA46BEC7324D10A3447F40 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				D4D92C7708134FBFAAE0AC5D /* GmarketSansTTFBold.ttf */,
 				82EFC40355C24B3297EA7179 /* GmarketSansTTFLight.ttf */,
@@ -167,7 +167,6 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -511,6 +510,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YZSJY7USR4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TakSomo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,6 +538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YZSJY7USR4;
 				INFOPLIST_FILE = TakSomo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -625,10 +626,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
@@ -698,10 +696,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

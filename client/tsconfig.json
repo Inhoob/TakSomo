@@ -15,12 +15,14 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@api/*": ["src/api/*"],
+      "@apis/*": ["src/apis/*"],
       "@interfaces/*": ["src/types/*"],
       "@navigation/*": ["public/assets/icons/*"],
       "@screens/*": ["src/screens/*"],
       "@services/*": ["src/services/*"],
-      "utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"],
+      "@queries/*": ["src/queries/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "*.ts", "*.tsx"],

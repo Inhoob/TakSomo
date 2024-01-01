@@ -1,10 +1,14 @@
 /* eslint-disable react/no-unstable-nested-components */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
+import {useTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {useTheme} from 'react-native-paper';
-import Home from '../screens/Home';
+
+import Chatting from '@screens/Chatting';
+import FindMeeting from '@screens/FindMeeting';
+import Home from '@screens/Home';
+import Profile from '@screens/Profile';
 
 const Tab = createBottomTabNavigator();
 export const RootTabNavigator = () => {
@@ -18,7 +22,8 @@ export const RootTabNavigator = () => {
         tabBarStyle: {
           backgroundColor: 'white',
           padding: 10,
-          height: 70,
+          height: 100,
+          borderWidth: 1,
         },
         tabBarLabelStyle: {
           fontSize: 12,
@@ -39,7 +44,7 @@ export const RootTabNavigator = () => {
         />
         <Tab.Screen
           name="MeetingList"
-          component={Home}
+          component={FindMeeting}
           options={{
             tabBarLabel: '모임찾기',
             tabBarIcon: ({color, size}) => (
@@ -49,7 +54,7 @@ export const RootTabNavigator = () => {
         />
         <Tab.Screen
           name="Chatting"
-          component={Home}
+          component={Chatting}
           options={{
             tabBarLabel: '채팅',
             tabBarIcon: ({color, size}) => (
@@ -59,7 +64,7 @@ export const RootTabNavigator = () => {
         />
         <Tab.Screen
           name="Profile"
-          component={Home}
+          component={Profile}
           options={{
             tabBarLabel: '프로필',
             tabBarIcon: ({color, size}) => (

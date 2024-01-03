@@ -8,7 +8,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Chatting from '@screens/Chatting';
 import FindMeeting from '@screens/FindMeeting';
 import Home from '@screens/Home';
-import Profile from '@screens/Profile';
+import Profile from '@screens/Profile/Profile';
 
 const Tab = createBottomTabNavigator();
 export const RootTabNavigator = () => {
@@ -63,9 +63,12 @@ export const RootTabNavigator = () => {
           }}
         />
         <Tab.Screen
-          name="Profile"
+          name="프로필"
           component={Profile}
           options={{
+            headerShown: true,
+            headerTitleAlign: 'left',
+            headerShadowVisible: false,
             tabBarLabel: '프로필',
             tabBarIcon: ({color, size}) => (
               <Ionicons name="person" color={color} size={size} />

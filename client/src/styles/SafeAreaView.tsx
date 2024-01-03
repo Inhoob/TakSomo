@@ -12,6 +12,7 @@ export const SafeAreaView: FC<{children: ReactNode}> = memo(({children}) => {
 
 const SafeArea = styled.SafeAreaView`
   flex: 1;
+  background-color: white;
 `;
 
 export type SafeAreaType = {SafeAreaView: typeof SafeAreaView};

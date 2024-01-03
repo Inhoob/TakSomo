@@ -1,5 +1,5 @@
 // @ts-nocheck
-import {api} from './api';
+import {AxiosError, AxiosResponse} from 'axios';
 import {
   useInfiniteQuery,
   useMutation,
@@ -8,8 +8,9 @@ import {
   UseQueryOptions,
 } from 'react-query';
 import {QueryFunctionContext} from 'react-query/types/core/types';
-import {AxiosError, AxiosResponse} from 'axios';
+
 import {GetInfinitePagesInterface} from '../interfaces';
+import {api} from './api';
 
 type QueryKeyT = [string, object | undefined];
 

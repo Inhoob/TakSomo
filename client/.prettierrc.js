@@ -16,6 +16,7 @@ module.exports = {
     '^@utils/(.*)$',
     '^@utils/(.*)$',
     '^@styles/(.*)$',
+    '^@constants/(.*)$',
     '^[./]',
   ],
 };

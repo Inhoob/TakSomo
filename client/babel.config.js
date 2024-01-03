@@ -18,6 +18,7 @@ module.exports = {
           '@styles': './src/styles',
           '@stores': './src/stores',
           '@queries': './src/queries',
+          '@constants': './src/constants',
         },
       },
     ],

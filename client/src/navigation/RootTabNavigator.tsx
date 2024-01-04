@@ -4,17 +4,19 @@ import React from 'react';
 import {useTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {BottomTabParamList} from 'src/interfaces/navigation';
 
-import Chatting from '@screens/Chatting';
-import FindMeeting from '@screens/FindMeeting';
-import Home from '@screens/Home';
-import Profile from '@screens/Profile/Profile';
+import ChattingStackScreen from './stack/ChattingStackScreen';
+import FindMeetingStackScreen from './stack/FindMeetingStackScreen';
+import HomeStackScreen from './stack/HomeStackScreen';
+import ProfileStackScreen from './stack/ProfileStackScreen';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomTabParamList>();
 export const RootTabNavigator = () => {
   const theme = useTheme();
   return (
     <Tab.Navigator
+      sceneContainerStyle={{backgroundColor: 'white', flex: 1}}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: theme.colors.tertiary,
@@ -33,8 +35,8 @@ export const RootTabNavigator = () => {
       }}>
       <>
         <Tab.Screen
-          name="Home"
-          component={Home}
+          name="HomeTab"
+          component={HomeStackScreen}
           options={{
             tabBarLabel: '홈',
             tabBarIcon: ({color, size}) => (
@@ -43,8 +45,8 @@ export const RootTabNavigator = () => {
           }}
         />
         <Tab.Screen
-          name="MeetingList"
-          component={FindMeeting}
+          name="MeetingListTab"
+          component={FindMeetingStackScreen}
           options={{
             tabBarLabel: '모임찾기',
             tabBarIcon: ({color, size}) => (
@@ -53,8 +55,8 @@ export const RootTabNavigator = () => {
           }}
         />
         <Tab.Screen
-          name="Chatting"
-          component={Chatting}
+          name="ChattingTab"
+          component={ChattingStackScreen}
           options={{
             tabBarLabel: '채팅',
             tabBarIcon: ({color, size}) => (
@@ -63,12 +65,9 @@ export const RootTabNavigator = () => {
           }}
         />
         <Tab.Screen
-          name="프로필"
-          component={Profile}
+          name="ProfileTab"
+          component={ProfileStackScreen}
           options={{
-            headerShown: true,
-            headerTitleAlign: 'left',
-            headerShadowVisible: false,
             tabBarLabel: '프로필',
             tabBarIcon: ({color, size}) => (
               <Ionicons name="person" color={color} size={size} />

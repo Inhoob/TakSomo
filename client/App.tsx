@@ -3,6 +3,7 @@ import {OverlayProvider} from '@toss/use-overlay';
 import React from 'react';
 import {useColorScheme} from 'react-native';
 import {PaperProvider} from 'react-native-paper';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {darkModeTheme, lightModeTheme} from '@styles/theme';
 
@@ -15,11 +16,13 @@ function App(): JSX.Element {
     colorScheme === 'dark' ? {...darkModeTheme} : {...lightModeTheme};
   return (
     <OverlayProvider>
-      <PaperProvider theme={paperTheme}>
-        <NavigationContainer>
-          <RootTabNavigator />
-        </NavigationContainer>
-      </PaperProvider>
+      <SafeAreaProvider>
+        <PaperProvider theme={paperTheme}>
+          <NavigationContainer>
+            <RootTabNavigator />
+          </NavigationContainer>
+        </PaperProvider>
+      </SafeAreaProvider>
     </OverlayProvider>
   );
 }

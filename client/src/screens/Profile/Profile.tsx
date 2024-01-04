@@ -1,8 +1,11 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
-import {Pressable} from 'react-native';
+import {Pressable, View} from 'react-native';
 import {Card, useTheme} from 'react-native-paper';
 import {ThemeProp} from 'react-native-paper/lib/typescript/types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {StackParamList} from 'src/interfaces/navigation';
 import styled from 'styled-components/native';
 
 import ImageWrapper from '@components/ImageWrapper';
@@ -10,7 +13,7 @@ import Spacer from '@components/Spacer';
 import StyledText from '@components/StyledText';
 
 // import StyledText from '@components/StyledText';
-import {Column, GlobalStyles} from '@styles/GlobalStyles';
+import {Column} from '@styles/GlobalStyles';
 import {CustomTheme} from '@styles/theme';
 
 import {dummyUser} from '@constants/DummyData';
@@ -18,12 +21,25 @@ import {dummyUser} from '@constants/DummyData';
 const Profile = () => {
   const dummyData = dummyUser;
   const theme = useTheme<CustomTheme>();
+  const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
+
+  // console.log(navigation);
 
   return (
     <View
       style={{padding: 20, backgroundColor: theme.colors.mainSurface, flex: 1}}>
       <Header>
-        <Pressable onPress={async () => {}}>
+        <Pressable
+          style={{
+            width: 100,
+            height: 100,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          onPress={() => {
+            console.log('pressed!');
+            navigation.navigate('EditProfile');
+          }}>
           <ImageWrapper
             source={{uri: dummyData.image}}
             width="80"

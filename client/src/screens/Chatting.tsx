@@ -1,13 +1,12 @@
 import React from 'react';
 import {Text} from 'react-native';
-
-import {GlobalStyles} from '@styles/GlobalStyles';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Chatting = () => {
   return (
-    <GlobalStyles.SafeAreaView>
+    <SafeAreaView>
       <Text>chatting</Text>
-    </GlobalStyles.SafeAreaView>
+    </SafeAreaView>
   );
 };
 

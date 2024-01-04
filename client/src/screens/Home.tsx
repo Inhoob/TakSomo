@@ -1,20 +1,19 @@
 import React from 'react';
 import {Text} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import CustomFAB from '@components/CustomFAB';
 import StyledText from '@components/StyledText';
 
-import {GlobalStyles} from '@styles/GlobalStyles';
-
 const Home = () => {
   return (
-    <GlobalStyles.SafeAreaView>
+    <SafeAreaView>
       <StyledText color="blue" size={20} height={30}>
         한글
       </StyledText>
       <Text>home</Text>
       <CustomFAB />
-    </GlobalStyles.SafeAreaView>
+    </SafeAreaView>
   );
 };
 

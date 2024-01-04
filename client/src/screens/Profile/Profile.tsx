@@ -20,7 +20,8 @@ const Profile = () => {
   const theme = useTheme<CustomTheme>();
 
   return (
-    <GlobalStyles.SafeAreaView>
+    <View
+      style={{padding: 20, backgroundColor: theme.colors.mainSurface, flex: 1}}>
       <Header>
         <Pressable onPress={async () => {}}>
           <ImageWrapper
@@ -68,7 +69,7 @@ const Profile = () => {
       </Section>
 
       <Spacer height="20" />
-    </GlobalStyles.SafeAreaView>
+    </View>
   );
 };
 const FloatingButton = styled.View<{theme: ThemeProp}>`

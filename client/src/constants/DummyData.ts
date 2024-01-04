@@ -29,6 +29,8 @@ export const dummyUser = {
   province: '서울',
   distinct: '강서구',
   racketGripStyle: '셰이크핸드',
+  selfIntroduction:
+    '저는 30살 박인후입니다. 앞으로 잘부탁드립니다. 40글자까지 가능해요..',
 };
 
 // export class User extends BaseEntity {

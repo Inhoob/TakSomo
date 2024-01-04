@@ -12,7 +12,7 @@ function App(): JSX.Element {
   const colorScheme = useColorScheme();
 
   const paperTheme =
-    colorScheme === 'dark' ? {...darkModeTheme} : {...lightModeTheme}; // 수정된 부분
+    colorScheme === 'dark' ? {...darkModeTheme} : {...lightModeTheme};
   return (
     <OverlayProvider>
       <PaperProvider theme={paperTheme}>

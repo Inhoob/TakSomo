@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
-import {Pressable, Text, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import React from 'react';
+import {Pressable} from 'react-native';
+import {Card, useTheme} from 'react-native-paper';
 import {ThemeProp} from 'react-native-paper/lib/typescript/types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {useModal} from 'src/hooks/useModal';
 import styled from 'styled-components/native';
 
 import ImageWrapper from '@components/ImageWrapper';
@@ -12,22 +11,18 @@ import StyledText from '@components/StyledText';
 
 // import StyledText from '@components/StyledText';
 import {Column, GlobalStyles} from '@styles/GlobalStyles';
+import {CustomTheme} from '@styles/theme';
 
 import {dummyUser} from '@constants/DummyData';
 
 const Profile = () => {
   const dummyData = dummyUser;
-  const theme = useTheme();
-  const {open, close} = useModal();
+  const theme = useTheme<CustomTheme>();
 
   return (
     <GlobalStyles.SafeAreaView>
       <Header>
-        <Pressable
-          onPress={async () => {
-            const result = await open();
-            console.log(result);
-          }}>
+        <Pressable onPress={async () => {}}>
           <ImageWrapper
             source={{uri: dummyData.image}}
             width="80"
@@ -56,6 +51,23 @@ const Profile = () => {
         </Column>
       </Header>
       <Spacer height="20" />
+      <Section>
+        <StyledText size={16} color={theme.colors.mainGray1}>
+          소개
+        </StyledText>
+        <Spacer height="10" />
+        <Card.Content
+          style={{
+            backgroundColor: theme.colors.cardContent,
+            padding: 20,
+            borderRadius: 12,
+            height: 100,
+          }}>
+          <StyledText>{dummyData.selfIntroduction}</StyledText>
+        </Card.Content>
+      </Section>
+
+      <Spacer height="20" />
     </GlobalStyles.SafeAreaView>
   );
 };
@@ -79,6 +91,10 @@ const FloatingButton = styled.View<{theme: ThemeProp}>`
 const Header = styled.View`
   flex-direction: row;
   align-items: center;
+`;
+
+const Section = styled.View`
+  flex-direction: column;
 `;
 
 export default Profile;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, TextProps} from 'react-native';
+import {Text, StyleSheet, TextProps, StyleSheetProperties} from 'react-native';
 
 interface StyledTextProps extends TextProps {
   color?: string;
@@ -13,6 +13,7 @@ const StyledText: React.FC<StyledTextProps> = ({
   size = 16,
   height = 20,
   children,
+  style,
   ...otherProps
 }) => {
   const styles = StyleSheet.create({
@@ -25,7 +26,7 @@ const StyledText: React.FC<StyledTextProps> = ({
   });
 
   return (
-    <Text style={styles.text} {...otherProps}>
+    <Text style={[styles.text, style]} {...otherProps}>
       {children}
     </Text>
   );

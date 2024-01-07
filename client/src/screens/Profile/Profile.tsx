@@ -19,7 +19,6 @@ import {CustomTheme} from '@styles/theme';
 import {dummyUser} from '@constants/DummyData';
 
 const Profile = () => {
-  const dummyData = dummyUser;
   const theme = useTheme<CustomTheme>();
   const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
 
@@ -41,7 +40,7 @@ const Profile = () => {
             navigation.navigate('EditProfile');
           }}>
           <ImageWrapper
-            source={{uri: dummyData.image}}
+            source={{uri: dummyUser.image}}
             width="80"
             height="80"
             radius="40"
@@ -50,20 +49,20 @@ const Profile = () => {
         <Spacer width="30" />
         <FloatingButton theme={theme}>
           <Ionicons
-            name={dummyData?.image ? 'pencil-outline' : 'camera-sharp'}
+            name={dummyUser?.image ? 'pencil-outline' : 'camera-sharp'}
             size={20}
             color={theme.colors.secondary}
           />
         </FloatingButton>
 
         <Column>
-          <StyledText size={20}>{dummyData.username}</StyledText>
+          <StyledText size={20}>{dummyUser.username}</StyledText>
           <Spacer height="5" />
           <StyledText color="gray" size={12} height={16}>
-            {dummyData.province} {dummyData.distinct}
+            {dummyUser.province} {dummyUser.distinct}
           </StyledText>
           <StyledText color="gray" size={12} height={16}>
-            {dummyData.grade}부
+            {dummyUser.grade}부
           </StyledText>
         </Column>
       </Header>
@@ -80,7 +79,7 @@ const Profile = () => {
             borderRadius: 12,
             height: 100,
           }}>
-          <StyledText>{dummyData.selfIntroduction}</StyledText>
+          <StyledText>{dummyUser.selfIntroduction}</StyledText>
         </Card.Content>
       </Section>
 
@@ -88,7 +87,7 @@ const Profile = () => {
     </View>
   );
 };
-const FloatingButton = styled.View<{theme: ThemeProp}>`
+export const FloatingButton = styled.View<{theme: ThemeProp}>`
   position: absolute;
   left: 60px;
   bottom: 5px;

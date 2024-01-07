@@ -5,7 +5,7 @@ import {useColorScheme} from 'react-native';
 import {PaperProvider} from 'react-native-paper';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-import {darkModeTheme, lightModeTheme} from '@styles/theme';
+import {lightModeTheme} from '@styles/theme';
 
 import {RootTabNavigator} from './src/navigation/RootTabNavigator';
 
@@ -13,7 +13,7 @@ function App(): JSX.Element {
   const colorScheme = useColorScheme();
 
   const paperTheme =
-    colorScheme === 'dark' ? {...darkModeTheme} : {...lightModeTheme};
+    colorScheme === 'dark' ? {...lightModeTheme} : {...lightModeTheme}; //TODO: 하나는 darkmodetheme으로 바꿀 것
   return (
     <OverlayProvider>
       <SafeAreaProvider>

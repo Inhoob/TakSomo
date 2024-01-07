@@ -68,5 +68,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+  <string>NS photo library usage</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+  <string>NS pohoto libary add usage</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>포토 라이브러리를 사용합니다</string>
 </dict>
 </plist>

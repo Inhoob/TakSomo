@@ -4,6 +4,7 @@ import {
   checkPhotoPermission,
   requestPhotoPermission,
 } from '@services/permission';
+import {useOverlay} from '@toss/use-overlay';
 import React, {useEffect} from 'react';
 import {
   View,
@@ -20,6 +21,7 @@ import {StackParamList} from 'src/interfaces/navigation';
 import styled from 'styled-components/native';
 
 import ImageWrapper from '@components/ImageWrapper';
+import TwoButtonModal from '@components/Modal/common/TwoButtonModal';
 import HeaderBackBtn from '@components/Navigation/HeaderBackBtn';
 import Spacer from '@components/Spacer';
 import StyledText from '@components/StyledText';
@@ -40,6 +42,8 @@ enum keyMapping {
   key = 'key',
 }
 
+const originalUserData = dummyUser;
+
 const EditProfile = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
 
@@ -47,15 +51,14 @@ const EditProfile = () => {
   const [userData, setUserData] = React.useState({
     ...dummyUser,
   });
+  const overlay = useOverlay();
 
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => <HeaderBackBtn onPress={handleBackPress} />,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const originalUserData = {...userData};
+  }, [userData]);
 
   const modifyUserData = (key: string, value: string) => {
     setUserData({
@@ -63,45 +66,46 @@ const EditProfile = () => {
       [key]: value,
     });
   };
-
-  const handleBackPress = () => {
-    userDataChanged() ? showConfirmationModal() : navigation.goBack();
-    return true;
+  const handleBackPress = async () => {
+    Keyboard.dismiss();
+    if (JSON.stringify(userData) === JSON.stringify(originalUserData)) {
+      navigation.goBack();
+    } else {
+      let result = await showConfirmationModal();
+      if (result === true) {
+        saveUserData();
+        navigation.goBack();
+      } else if (result === false) {
+        navigation.goBack();
+      } else {
+        return true;
+      }
+    }
   };
 
-  const userDataChanged = () => {
-    return JSON.stringify(userData) !== JSON.stringify(originalUserData);
-  };
-
-  const showConfirmationModal = () => {
-    Alert.alert(
-      '변경된 내용을 저장하시겠습니까?',
-      '저장하지 않고 나가면 변경된 내용이 저장되지 않습니다.',
-      [
-        {
-          text: '저장',
-          onPress: () => {
-            saveUserData();
-            navigation.goBack();
-          },
-        },
-        {
-          text: '저장하지 않고 나가기',
-          onPress: () => {
-            navigation.goBack();
-          },
-        },
-        {
-          text: '취소',
-          style: 'cancel',
-        },
-      ],
+  const showConfirmationModal = async () => {
+    return new Promise(resolve =>
+      overlay.open(({isOpen, close}) => (
+        <TwoButtonModal
+          open={isOpen}
+          onClose={() => {
+            resolve(false);
+            close();
+          }}
+          onConfirm={() => {
+            resolve(true);
+            close();
+          }}
+          onDismiss={close}
+          content="변경된 내용을 저장하시겠습니까?"
+        />
+      )),
     );
   };
 
   const saveUserData = () => {
     /**TODO: save 코드 작성
-     * 완료버튼 누를 시 바로 저장하고 뒤로가기 누를 시 저장 할지 말지 결정하는 modal
+     *
      */
   };
   const pickImage = () => {
@@ -121,16 +125,13 @@ const EditProfile = () => {
             response.assets &&
             typeof response.assets[0]?.uri === 'string'
           ) {
-            console.log(response.assets[0]?.uri);
             modifyUserData('image', response.assets[0]?.uri);
           } else {
             /*TODO: 에러처리 추가 : 이미지를 불러오지 못했습니다 등 */
           }
         },
       );
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const onPressPhotoButton = async () => {
@@ -184,7 +185,9 @@ const EditProfile = () => {
             numberOfLines={key === 'selfIntroduction' ? 5 : 3}
             value={userData[key as keyof typeof userData] as string}
             multiline={key === 'selfIntroduction' ? true : false}
-            onChangeText={text => modifyUserData(key, text)}
+            onChangeText={text => {
+              modifyUserData(key, text);
+            }}
             underlineColor="transparent"
           />
         </Row>

@@ -8,7 +8,7 @@ import StyledText from '@components/StyledText';
 
 const Home = () => {
   const navigation = useNavigation();
-  console.log(navigation);
+
   return (
     <SafeAreaView>
       <StyledText color="blue" size={20} height={30}>

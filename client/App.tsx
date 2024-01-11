@@ -15,15 +15,15 @@ function App(): JSX.Element {
   const paperTheme =
     colorScheme === 'dark' ? {...lightModeTheme} : {...lightModeTheme}; //TODO: 하나는 darkmodetheme으로 바꿀 것
   return (
-    <OverlayProvider>
-      <SafeAreaProvider>
-        <PaperProvider theme={paperTheme}>
+    <SafeAreaProvider>
+      <PaperProvider theme={paperTheme}>
+        <OverlayProvider>
           <NavigationContainer>
             <RootTabNavigator />
           </NavigationContainer>
-        </PaperProvider>
-      </SafeAreaProvider>
-    </OverlayProvider>
+        </OverlayProvider>
+      </PaperProvider>
+    </SafeAreaProvider>
   );
 }
 

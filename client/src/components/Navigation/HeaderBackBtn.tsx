@@ -11,7 +11,7 @@ interface Props {
 
 const HeaderBackBtn = ({onPress}: Props) => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
-  console.log('navigation!!!!', navigation);
+
   return (
     <Pressable
       hitSlop={{top: 30, bottom: 30, left: 30, right: 30}}

@@ -22,8 +22,6 @@ const Profile = () => {
   const theme = useTheme<CustomTheme>();
   const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
 
-  // console.log(navigation);
-
   return (
     <View
       style={{padding: 20, backgroundColor: theme.colors.mainSurface, flex: 1}}>

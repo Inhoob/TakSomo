@@ -1,11 +1,10 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
-  CheckPhotoPermissionResult,
   checkPhotoPermission,
   requestPhotoPermission,
 } from '@services/permission';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Pressable,
@@ -13,16 +12,15 @@ import {
   Keyboard,
   Linking,
   Alert,
-  BackHandler,
 } from 'react-native';
 import * as ImagePicker from 'react-native-image-picker';
-import {Card, TextInput, useTheme} from 'react-native-paper';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {TextInput, useTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackParamList} from 'src/interfaces/navigation';
 import styled from 'styled-components/native';
 
 import ImageWrapper from '@components/ImageWrapper';
+import HeaderBackBtn from '@components/Navigation/HeaderBackBtn';
 import Spacer from '@components/Spacer';
 import StyledText from '@components/StyledText';
 
@@ -44,35 +42,20 @@ enum keyMapping {
 
 const EditProfile = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
+
   const theme = useTheme<CustomTheme>();
   const [userData, setUserData] = React.useState({
     ...dummyUser,
   });
 
-  const originalUserData = {...userData};
-  const handleBackPress = useCallback(() => {
-    let isSame = userDataChanged();
-    console.log('issame!!', isSame);
-    if (isSame) {
-      showConfirmationModal();
-      return true;
-    } else {
-      return false;
-    }
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => <HeaderBackBtn onPress={handleBackPress} />,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log('didmount!!!');
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      handleBackPress,
-    );
-
-    return () => {
-      console.log('return!!!!');
-      backHandler.remove();
-    };
-  }, [handleBackPress]);
+  const originalUserData = {...userData};
 
   const modifyUserData = (key: string, value: string) => {
     setUserData({
@@ -81,10 +64,13 @@ const EditProfile = () => {
     });
   };
 
+  const handleBackPress = () => {
+    userDataChanged() ? showConfirmationModal() : navigation.goBack();
+    return true;
+  };
+
   const userDataChanged = () => {
-    console.log(userData);
-    console.log(originalUserData);
-    return JSON.stringify(userData) === JSON.stringify(originalUserData);
+    return JSON.stringify(userData) !== JSON.stringify(originalUserData);
   };
 
   const showConfirmationModal = () => {
@@ -130,9 +116,15 @@ const EditProfile = () => {
           selectionLimit: 1,
         },
         response => {
-          if (!response.didCancel) {
+          if (
+            !response.didCancel &&
+            response.assets &&
+            typeof response.assets[0]?.uri === 'string'
+          ) {
             console.log(response.assets[0]?.uri);
             modifyUserData('image', response.assets[0]?.uri);
+          } else {
+            /*TODO: 에러처리 추가 : 이미지를 불러오지 못했습니다 등 */
           }
         },
       );

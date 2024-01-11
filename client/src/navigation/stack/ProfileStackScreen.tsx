@@ -8,12 +8,13 @@ import {StackParamList} from 'src/interfaces/navigation';
 import EditProfile from '@screens/Profile/EditProfile';
 import Profile from '@screens/Profile/Profile';
 
+import HeaderBackBtn from '@components/Navigation/HeaderBackBtn';
 import StyledText from '@components/StyledText';
 
 const ProfileStack = createNativeStackNavigator();
 
 const ProfileStackScreen = (): React.JSX.Element => {
-  const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
+  // const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
   return (
     <ProfileStack.Navigator>
       <ProfileStack.Screen
@@ -24,7 +25,7 @@ const ProfileStackScreen = (): React.JSX.Element => {
           headerTitleAlign: 'left',
           headerShadowVisible: false,
           headerTitle: '',
-          headerLeft: () => <StyledText>프로필</StyledText>,
+          headerLeft: () => <StyledText size={20}>프로필</StyledText>,
           contentStyle: {backgroundColor: 'white'},
         }}
       />
@@ -34,14 +35,7 @@ const ProfileStackScreen = (): React.JSX.Element => {
         options={{
           contentStyle: {backgroundColor: 'white'},
           headerTitle: '프로필 편집',
-          headerLeft: () => (
-            <Ionicons
-              name="arrow-back"
-              size={20}
-              color="black"
-              onPress={() => navigation.navigate('ProfileStack')}
-            />
-          ),
+          headerLeft: () => <HeaderBackBtn />,
         }}
       />
     </ProfileStack.Navigator>

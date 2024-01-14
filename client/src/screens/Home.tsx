@@ -15,7 +15,6 @@ const Home = () => {
         한글
       </StyledText>
       <Text>home</Text>
-      <CustomFAB />
     </SafeAreaView>
   );
 };

@@ -5,6 +5,8 @@ import {useColorScheme} from 'react-native';
 import {PaperProvider} from 'react-native-paper';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
+import CustomFAB from '@components/CustomFAB';
+
 import {lightModeTheme} from '@styles/theme';
 
 import {RootTabNavigator} from './src/navigation/RootTabNavigator';
@@ -20,6 +22,7 @@ function App(): JSX.Element {
         <OverlayProvider>
           <NavigationContainer>
             <RootTabNavigator />
+            <CustomFAB />
           </NavigationContainer>
         </OverlayProvider>
       </PaperProvider>

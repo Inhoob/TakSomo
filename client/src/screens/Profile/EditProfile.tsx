@@ -169,26 +169,30 @@ const EditProfile = () => {
         <Row>
           <Key color={theme.colors.mainGray1}>{keyMapping[key]}</Key>
           <TextInput
+            mode="outlined"
             maxLength={key === 'selfIntroduction' ? 40 : 10}
             style={{
               backgroundColor: theme.colors.cardContent,
               flex: 1,
               height: key === 'selfIntroduction' ? 100 : 40,
+              borderRadius: 12,
               justifyContent: 'flex-start',
               textAlignVertical: key === 'selfIntroduction' ? 'top' : 'auto',
             }}
+            outlineStyle={{borderRadius: 12}}
             placeholder={
               key === 'selfIntroduction'
                 ? '소개를 입력해 보세요(최대 40글자)'
                 : ''
             }
-            numberOfLines={key === 'selfIntroduction' ? 5 : 3}
+            numberOfLines={key === 'selfIntroduction' ? 5 : 1}
             value={userData[key as keyof typeof userData] as string}
             multiline={key === 'selfIntroduction' ? true : false}
             onChangeText={text => {
               modifyUserData(key, text);
             }}
             underlineColor="transparent"
+            outlineColor="transparent"
           />
         </Row>
       </View>
@@ -207,6 +211,7 @@ const EditProfile = () => {
               height: 40,
               justifyContent: 'center',
               paddingLeft: 20,
+              borderRadius: 12,
             }}>
             <StyledText>
               {userData.province + ' ' + userData.distinct}

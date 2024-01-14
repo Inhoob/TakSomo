@@ -11,4 +11,5 @@ export type StackParamList = {
   ChattingStack: undefined;
   ProfileStack: undefined;
   EditProfile: undefined;
+  CreateMeeting: undefined;
 };

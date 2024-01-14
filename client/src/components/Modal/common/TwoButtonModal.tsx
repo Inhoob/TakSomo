@@ -39,7 +39,7 @@ const TwoButtonModal: React.FC<Props> = ({
             style={{
               backgroundColor: theme.colors.background,
               padding: 20,
-              borderRadius: 10,
+              borderRadius: 12,
               width: deviceWidth * 0.8,
               minHeight: 200,
               justifyContent: 'space-between',

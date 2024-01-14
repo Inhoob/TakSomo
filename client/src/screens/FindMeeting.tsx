@@ -14,7 +14,7 @@ const FindMeeting = () => {
     <SafeAreaView>
       {/* <StyledText color="blue" size={20} height={30}></StyledText> */}
       <Text>findMeeting</Text>
-      <CustomFAB />
+      {/* <CustomFAB /> */}
     </SafeAreaView>
   );
 };
